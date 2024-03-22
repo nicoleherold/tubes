@@ -1,0 +1,46 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #121212; /* Dunkler Hintergrund */
+}
+
+#game {
+    display: flex;
+    flex-wrap: wrap;
+    width: 540px;
+    gap: 10px;
+}
+
+.tube {
+    width: 40px;
+    height: 150px; /* Angepasst für mehr Höhe */
+    border: 2px solid #eeeeee;
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 5px;
+    margin-bottom: 30px;
+    /* margin: 0 auto; Zentriert die Reagenzgläser, falls gewünscht */
+}
+
+.ball {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin: 2px auto;
+    border: 1px solid white; /* Weißer Rand um die Kugeln */
+}
+
+.selected-ball {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    position: absolute;
+    border: 1px solid white; /* Weißer Rand um die Kugeln */
+    z-index: 10;
+}
+.helper-tube {
+    height: 75px; /* Halb so hoch wie die anderen Reagenzgläser */
+    align-self: flex-end;
+}
