@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let selectedTubeIndex = null;
     // Globale Variable für das schwebende Element
     let floatingBall = null;
+    let moveHistory = []; // Zum Speichern der Zughistorie
 
     // Initialisiert das Spiel
     function initGame() {
@@ -46,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
         floatingBall.style.backgroundColor = color;
         const rect = tubeElement.getBoundingClientRect();
         floatingBall.style.left = `${rect.left + (rect.width / 2) - 15}px`; // Zentriere über dem Reagenzglas
-        floatingBall.style.top = `${rect.top - 20}px`; // Positioniere ein wenig über dem Reagenzglas
+        floatingBall.style.top = `${rect.top - 32}px`; // Positioniere ein wenig über dem Reagenzglas
     }
 
     // Versteckt das schwebende Element
@@ -153,6 +154,7 @@ function canMoveBall(fromIndex, toIndex) {
                 alert('Glückwunsch! Du hast gewonnen!');
             }
         }
+        addMoveToHistory(fromIndex, toIndex); // Füge diesen Zug zur Historie hinzu
         renderGame(); // Aktualisiere das Spielfeld nach jedem Zug
     }
 
@@ -180,6 +182,32 @@ function checkWin() {
 
     return true; // Das Spiel ist gewonnen
 }
+
+
+// Funktion zum Hinzufügen eines Zuges zur Historie
+function addMoveToHistory(fromIndex, toIndex) {
+    moveHistory.push({fromIndex, toIndex});
+}
+
+// Funktion zum Rückgängigmachen des letzten Zuges
+function undoLastMove() {
+    const lastMove = moveHistory.pop();
+    if (lastMove) {
+        const { fromIndex, toIndex } = lastMove;
+        // Bewege die Kugel zurück
+        const ball = tubes[toIndex].balls.pop();
+        tubes[fromIndex].balls.push(ball);
+        renderGame();
+    }
+}
+
+
+
+document.getElementById('undoButton').addEventListener('click', undoLastMove);
+
+
+
+
     initGame();
 });
 

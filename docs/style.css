@@ -2,6 +2,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     height: 100vh;
     background-color: #121212; /* Dunkler Hintergrund */
 }
@@ -14,12 +15,12 @@ body {
 }
 
 .tube {
-    width: 40px;
-    height: 150px; /* Angepasst für mehr Höhe */
+    width: 36px;
+    height: 145px; /* Angepasst für mehr Höhe */
     border: 2px solid #eeeeee;
     display: flex;
     flex-direction: column-reverse;
-    padding: 5px;
+    padding: 3px;
     margin-bottom: 30px;
     /* margin: 0 auto; Zentriert die Reagenzgläser, falls gewünscht */
 }
@@ -41,6 +42,42 @@ body {
     z-index: 10;
 }
 .helper-tube {
-    height: 75px; /* Halb so hoch wie die anderen Reagenzgläser */
+    height: 73px; /* Halb so hoch wie die anderen Reagenzgläser */
     align-self: flex-end;
+}
+
+#undoButton {
+    padding: 5px 5px;
+    font-size: 12px;
+    cursor: pointer;
+    border: none;
+    background-color: white;
+    color: #121212;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+#undoButton:hover {
+    background-color: #f0f0f0;
+}
+
+.icon-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background-color: #f5f5f5;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.icon-button:hover {
+    background-color: #e0e0e0;
+}
+
+.material-icons {
+    font-size: 24px; /* Größe des Icons */
+    margin-right: 8px; /* Abstand zwischen Icon und Text */
 }
