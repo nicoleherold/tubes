@@ -10,7 +10,7 @@ body {
 #game {
     display: flex;
     flex-wrap: wrap;
-    width: 540px;
+    width: 300px;
     gap: 10px;
 }
 
@@ -46,21 +46,6 @@ body {
     align-self: flex-end;
 }
 
-#undoButton {
-    padding: 5px 5px;
-    font-size: 12px;
-    cursor: pointer;
-    border: none;
-    background-color: white;
-    color: #121212;
-    border-radius: 5px;
-    margin-bottom: 10px;
-}
-
-#undoButton:hover {
-    background-color: #f0f0f0;
-}
-
 .icon-button {
     display: inline-flex;
     align-items: center;
@@ -71,10 +56,6 @@ body {
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s;
-}
-
-.icon-button:hover {
-    background-color: #e0e0e0;
 }
 
 .material-icons {
